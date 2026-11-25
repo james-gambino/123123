@@ -1,0 +1,127 @@
+.username-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-nav .nav-link.is-current:after {
+  transform: scaleX(1);
+  background: #fc7630;
+}
+.mobile-nav .nav-link.is-current {
+  text-decoration: underline;
+  text-decoration-color: #fc7630;
+  text-underline-offset: 6px;
+}
+.footer-nav .is-current {
+  text-decoration: underline;
+  text-decoration-color: #fc7630;
+  text-underline-offset: 6px;
+}
+.utility-intro {
+  padding-bottom: 34px;
+}
+.utility-intro-copy {
+  max-width: 900px;
+}
+.utility-surface {
+  padding-bottom: 30px;
+  min-height: 280px;
+}
+.utility-heading {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: -0.45px;
+  margin: 0 0 26px;
+}
+.utility-form {
+  max-width: 880px;
+}
+.utility-form .field {
+  color: #555560;
+  font-size: 1rem;
+}
+.utility-form :is(input, textarea) {
+  color: #202027;
+  background: #f4f4f6;
+  border-color: #dedee5;
+}
+.utility-form :is(input, textarea):focus {
+  border-color: #844bec;
+}
+.utility-form input::placeholder,
+.utility-form textarea::placeholder {
+  color: #81818c;
+}
+.utility-form .short-textarea {
+  min-height: 80px;
+}
+.utility-hint {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #73737d;
+  margin: 6px 0 0;
+}
+.utility-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+.utility-actions .workspace-button {
+  gap: 9px;
+}
+.utility-archive-list .archive-record {
+  border-color: #e3e3e8;
+  align-items: center;
+}
+.utility-archive-list .archive-year {
+  color: #704e94;
+}
+.utility-archive-list .archive-text h2 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin: 0;
+  font-weight: 400;
+}
+.utility-archive-list .archive-text small {
+  color: #72727d;
+}
+.workspace-empty > h2 {
+  font-size: 1.75rem;
+  font-weight: 400;
+  line-height: 1.25;
+  margin: 0 0 14px;
+}
+.record-content {
+  max-width: 880px;
+}
+.record-content h2 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0 0 12px;
+}
+.record-content .record-copy {
+  color: #555560;
+  margin-bottom: 30px;
+}
+@media (max-width: 767px) {
+  .utility-actions {
+    gap: 10px;
+  }
+  .utility-form {
+    max-width: 100%;
+  }
+  .utility-actions .workspace-button {
+    font-size: 0.9375rem;
+  }
+  .utility-intro {
+    padding-bottom: 28px;
+  }
+  .workspace-empty > h2 {
+    font-size: 1.5rem;
+  }
+}

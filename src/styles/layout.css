@@ -1,0 +1,228 @@
+/* Общие боковые границы всех разделов страницы. */
+:root {
+  --page-content-max: 1200px;
+  --account-nav-width: 31rem;
+  --procedure-toolbar-height: 77px;
+  --page-edge: 32px;
+  --site-header-height: 88px;
+  --brand-symbol-width: 76px;
+  --brand-symbol-height: calc(var(--brand-symbol-width) * 900 / 1325);
+}
+html {
+  scrollbar-gutter: stable;
+}
+@media (min-width: 1440px) {
+  :root {
+    --page-content-max: 1280px;
+    --site-header-height: 96px;
+  }
+}
+@media (min-width: 1800px) {
+  :root {
+    --page-content-max: 1440px;
+  }
+}
+@media (max-width: 991px) {
+  :root {
+    --page-edge: 24px;
+    --site-header-height: 82px;
+  }
+}
+@media (max-width: 767px) {
+  :root {
+    --page-edge: 20px;
+    --site-header-height: 76px;
+  }
+}
+@media (max-width: 575px) {
+  :root {
+    --site-header-height: 72px;
+    --brand-symbol-width: 66px;
+  }
+}
+
+.site-header,
+body:has(.portal-workspace) .site-header,
+.site-footer,
+body:not(:has(.portal-workspace))
+  :is(.hero, .page-width, .period-section, .process-section, .criteria-section, .ready-section) {
+  width: calc(100% - var(--page-edge) * 2);
+  max-width: var(--page-content-max);
+  margin-inline: auto;
+}
+.site-header,
+body:has(.portal-workspace) .site-header,
+.site-footer {
+  padding-inline: 0;
+}
+.site-header,
+body:has(.portal-workspace) .site-header {
+  height: var(--site-header-height);
+}
+.site-footer {
+  border-top: 0;
+  padding-top: 1px;
+  padding-bottom: 18px;
+}
+.footer-top {
+  align-items: center;
+  padding-bottom: 15px;
+  gap: 32px;
+}
+.footer-nav {
+  align-items: center;
+}
+.footer-nav {
+  flex-wrap: wrap;
+  row-gap: 12px;
+}
+body:not(:has(.portal-workspace)) .process-section > .section-intro {
+  padding-inline: 0;
+}
+
+/* Кабинет использует ту же сетку, что и лендинг, без сдвига при переходе. */
+body:has(.portal-workspace) :is(.workspace-intro, .workspace-surface) {
+  padding-inline: var(--page-edge);
+}
+body:has(.portal-workspace) .workspace-width {
+  width: 100%;
+  max-width: var(--page-content-max);
+}
+
+/* Один прозрачный знак в обоих местах; подпись подвала набрана текстом. */
+@font-face {
+  font-family: 'Inter Brand';
+  src: url('/assets/brand/inter-extrabold.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+}
+.wordmark.brand-mark {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  line-height: 0;
+}
+.brand-mark .brand-logo {
+  display: block;
+  width: var(--brand-symbol-width);
+  height: auto;
+}
+.wordmark.brand-mark--full {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+.brand-wordmark {
+  font-family: 'Inter Brand', Arial, sans-serif;
+  font-weight: 800;
+  font-size: calc(1.3125rem * 0.75);
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  color: #111;
+  white-space: nowrap;
+}
+.brand-wordmark-accent {
+  color: #c90920;
+}
+@media (max-width: 767px) {
+  .site-footer {
+    padding-bottom: 12.5px;
+  }
+  .footer-top {
+    gap: 20px;
+    padding-bottom: 13px;
+  }
+  .footer-brand {
+    gap: 16px;
+  }
+  .footer-brand > span {
+    padding-left: 16px;
+  }
+  .footer-nav {
+    gap: 18px;
+  }
+}
+@media (max-width: 575px) {
+  .brand-wordmark {
+    font-size: calc(1.125rem * 0.75);
+    letter-spacing: -0.4px;
+  }
+}
+
+/* Одна ширина правой колонки у меню и сведений сотрудника. */
+.site-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content var(--account-nav-width);
+  column-gap: 36px;
+}
+.main-nav {
+  display: contents;
+}
+.header-tools,
+.header-account {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  min-width: 0;
+}
+.header-account {
+  justify-content: space-between;
+  gap: 20px;
+}
+.header-account .username-button {
+  min-width: 0;
+  flex-shrink: 0;
+}
+.mobile-nav[popover] {
+  inset: var(--site-header-height)
+    max(var(--page-edge), calc((100vw - var(--page-content-max)) / 2)) auto auto;
+  width: min(24rem, calc(100vw - var(--page-edge) * 2));
+  margin: 0;
+  padding: 8px 16px;
+  border: 1px solid #393a42;
+  border-radius: 12px;
+  background: #15161b;
+  color: #f8f8fa;
+}
+.mobile-nav[popover]:popover-open {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.mobile-nav[popover] .nav-link {
+  display: block;
+  padding: 13px 5px;
+  font-size: 17px;
+  text-align: left;
+}
+.mobile-nav[popover] .nav-link:after {
+  display: none;
+}
+@media (max-width: 1100px) {
+  .site-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 20px;
+  }
+  .header-tools,
+  .header-account > .nav-link {
+    display: none;
+  }
+  .header-account {
+    gap: 12px;
+  }
+  .menu-toggle {
+    display: grid;
+    place-items: center;
+  }
+}
+@media (max-width: 850px) {
+  :root {
+    --procedure-toolbar-height: 78px;
+  }
+}
+@media (max-width: 650px) {
+  :root {
+    --procedure-toolbar-height: 67px;
+  }
+}

@@ -1,0 +1,1165 @@
+/* Внутренние страницы продолжают визуальный язык главной. */
+html:has(.portal-workspace) {
+  scroll-padding-top: 0;
+}
+body:has(.portal-workspace) {
+  background: #fff;
+}
+body:has(.portal-workspace) #app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background: #15161b;
+}
+body:has(.portal-workspace) .site-header {
+  width: 100%;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+body:has(.portal-workspace) .footer-surface {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-top: -1px;
+  padding-top: 1px;
+}
+body:has(.portal-workspace) .site-footer {
+  padding-bottom: 12px;
+}
+body:has(.portal-workspace) .footer-top {
+  padding-block: 20px 8px;
+}
+.portal-workspace {
+  flex-shrink: 0;
+}
+.workspace-width {
+  max-width: 1200px;
+  margin-inline: auto;
+}
+/* Строка возврата не меняет положение при раскрытии сведений. */
+.workspace-intro {
+  padding: 0 32px 34px;
+  background: #15161b;
+  color: #f8f8fa;
+}
+.workspace-return {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 40px;
+  margin-bottom: 16px;
+}
+.workspace-header-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 40px;
+  padding: 8px 0 8px 8px;
+  margin-left: auto;
+  color: #b9b9c3;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-align: right;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 7px;
+  transition:
+    color 0.15s,
+    text-decoration-color 0.15s;
+}
+.workspace-header-toggle:hover,
+.workspace-header-toggle:focus-visible {
+  color: #fff;
+  text-decoration-color: #fc7630;
+}
+.workspace-intro:has(.workspace-header:not([open])) {
+  padding-block: 0 calc((var(--site-header-height) - var(--brand-symbol-height)) / 2);
+}
+.workspace-intro:has(.workspace-header) > .workspace-width {
+  position: relative;
+}
+.workspace-intro:has(.workspace-header) > .workspace-width > .workspace-parent-link {
+  position: absolute;
+  inset: 0 auto auto 0;
+  z-index: 1;
+}
+.workspace-header-toggle {
+  display: flex;
+  width: fit-content;
+  list-style: none;
+  cursor: pointer;
+}
+.workspace-header-toggle::-webkit-details-marker {
+  display: none;
+}
+.workspace-header[open] > .workspace-header-toggle {
+  margin-bottom: 16px;
+}
+.workspace-header[open] .header-label-collapsed,
+.workspace-header:not([open]) .header-label-expanded {
+  display: none;
+}
+.workspace-parent-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 8px 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #b9b9c3;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 7px;
+  transition:
+    color 0.15s,
+    text-decoration-color 0.15s;
+}
+.workspace-parent-link:hover,
+.workspace-parent-link:focus-visible {
+  color: #fff;
+  text-decoration-color: #fc7630;
+}
+.workspace-intro-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--account-nav-width);
+  gap: 56px;
+  align-items: start;
+}
+.workspace-intro-copy {
+  min-width: 0;
+  min-height: 11rem;
+}
+.workspace-intro h1 {
+  font-size: 3.75rem;
+  line-height: 1.04;
+  letter-spacing: -1.8px;
+  font-weight: 400;
+  margin: 0 0 20px;
+}
+.workspace-lead {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  color: #b9b9c3;
+  margin: 0;
+}
+.workspace-intro h1:focus,
+.procedure-section-heading h2:focus,
+main:focus {
+  outline: none;
+}
+.workspace-person {
+  position: relative;
+  min-width: 0;
+  text-align: left;
+  padding: 3px 0 0;
+}
+.workspace-person:before {
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #3c3d45;
+}
+.workspace-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 28px;
+  margin: 0;
+}
+.workspace-details > div {
+  min-width: 0;
+}
+.workspace-details > div:nth-child(even) {
+  text-align: right;
+}
+.workspace-details dt {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #9697a4;
+  margin-bottom: 6px;
+}
+.workspace-details dd {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #e4e4eb;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.workspace-surface {
+  background: #fff;
+  color: #202027;
+  color-scheme: light;
+  border-radius: 30px 30px 0 0;
+  padding: 34px 32px 20px;
+}
+.workspace-text-link {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #704e94;
+  text-decoration: underline;
+  text-decoration-color: #c5b4d5;
+  text-underline-offset: 4px;
+  padding: 0;
+}
+.workspace-text-link:hover {
+  color: #40235d;
+  text-decoration-color: currentColor;
+}
+.workspace-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 22px;
+  border: 1px solid #d6d6dd;
+  border-radius: 10px;
+  color: #3e3e48;
+  font-size: 1rem;
+  line-height: 1.4;
+  white-space: nowrap;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+.workspace-button:hover {
+  background: #efeff3;
+}
+.workspace-button.primary {
+  color: #fff;
+  background: #24242d;
+  border-color: #24242d;
+}
+.workspace-button.primary:hover {
+  background: #3e3f49;
+  border-color: #3e3f49;
+}
+.workspace-button.layered {
+  margin-right: 9px;
+  box-shadow:
+    3px 0 #fc7630,
+    6px 0 #844bec,
+    9px 0 #00bea2;
+  transition:
+    background 0.15s,
+    box-shadow 0.2s;
+}
+.workspace-button.layered:hover,
+.workspace-button.layered:focus-visible {
+  box-shadow:
+    8px 0 #fc7630,
+    16px 0 #844bec,
+    24px 0 #00bea2;
+}
+.workspace-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 13px;
+  border-radius: 30px;
+  background: #e8e8ed;
+  color: #575761;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.catalog-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 22px;
+}
+.catalog-heading h2 {
+  font-size: 1.75rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.45px;
+  margin: 0;
+}
+.catalog-heading > span {
+  font-size: 0.875rem;
+  color: #81818c;
+  white-space: nowrap;
+}
+.procedure-card-list {
+  display: grid;
+  gap: 22px;
+}
+.procedure-card {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 40px;
+  padding: 28px;
+  border-radius: 24px;
+  background: #f4f4f6;
+}
+.procedure-card-year {
+  font-size: 6.25rem;
+  line-height: 1.08;
+  letter-spacing: -5px;
+  font-weight: 400;
+}
+.procedure-card-content {
+  min-width: 0;
+}
+.procedure-card-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 22px;
+  margin: 6px 0 14px;
+}
+.procedure-card h3 {
+  font-size: 2.25rem;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.9px;
+  margin: 0;
+}
+.procedure-card h3 a:hover {
+  color: #53535f;
+}
+.procedure-card-description {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: #35353e;
+  margin: 0;
+  max-width: 650px;
+}
+.procedure-card-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 22px;
+  font-size: 0.875rem;
+  color: #6e6f79;
+  line-height: 1.5;
+  margin-top: 22px;
+}
+.procedure-card-sections a {
+  border-bottom: 1px solid #c9c9d2;
+  padding-bottom: 2px;
+}
+.procedure-card-sections a:hover {
+  color: #202027;
+  border-color: #202027;
+}
+.procedure-card-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 36px;
+  margin: 22px 0 0;
+}
+.procedure-card-facts > div {
+  min-width: 0;
+  max-width: 380px;
+}
+.procedure-card-facts dt {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: #777782;
+  margin-bottom: 5px;
+}
+.procedure-card-facts dd {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #45454f;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.procedure-card-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 26px;
+  margin-top: 28px;
+}
+.procedure-card-bottom > div {
+  min-width: 0;
+}
+.procedure-card-step-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 16px;
+}
+.procedure-card-status--step {
+  display: none;
+  margin-left: auto;
+}
+.procedure-card-bottom > div > span {
+  display: block;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: #777782;
+  margin-bottom: 5px;
+}
+.procedure-card-bottom strong {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #45454f;
+  display: block;
+}
+.catalog-help {
+  margin-top: 18px;
+  color: #6c6c77;
+}
+.catalog-help summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  list-style: none;
+  cursor: pointer;
+  padding: 10px 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.catalog-help summary::-webkit-details-marker {
+  display: none;
+}
+.catalog-help summary .icon {
+  width: 23px;
+  height: 23px;
+}
+.catalog-help[open] summary .icon {
+  transform: rotate(45deg);
+}
+.catalog-help > div {
+  padding-top: 10px;
+  max-width: 780px;
+}
+.catalog-help p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 15px;
+}
+.catalog-help .workspace-text-link {
+  margin: 2px 0 8px;
+}
+.catalog-archive {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  border-top: 1px solid #e3e3e8;
+  margin-top: 28px;
+  padding-top: 24px;
+}
+.catalog-archive h3 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.3;
+  margin: 0 0 8px;
+}
+.catalog-archive p {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #72727d;
+  margin: 0;
+}
+.catalog-archive > .workspace-text-link {
+  flex-shrink: 0;
+}
+
+/* Оценка: горизонтальная навигация и одна колонка содержания. */
+.procedure-intro h1 {
+  font-size: 3.5rem;
+}
+.procedure-surface {
+  padding-top: 0;
+}
+.procedure-toolbar {
+  block-size: var(--procedure-toolbar-height);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 19px 0;
+  background: #fff;
+  border-bottom: 1px solid #dedee5;
+}
+.procedure-navigation {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  gap: 8px 30px;
+}
+.procedure-status {
+  position: relative;
+  flex-shrink: 0;
+  max-width: 100%;
+}
+.procedure-current-status {
+  max-width: 100%;
+  white-space: normal;
+  cursor: help;
+}
+.procedure-current-status:focus-visible {
+  outline: 2px solid #704e94;
+  outline-offset: 3px;
+}
+.procedure-status-icon {
+  display: none;
+}
+.procedure-status-tooltip {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  z-index: 30;
+  width: max-content;
+  max-width: min(280px, calc(100vw - 40px));
+  padding: 9px 12px;
+  border-radius: 8px;
+  background: #24242d;
+  color: #fff;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  text-align: left;
+  box-shadow: 0 4px 16px #15161b1a;
+}
+.procedure-status-tooltip:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -10px;
+  height: 10px;
+}
+.procedure-navigation a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 5px 0;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: #74747e;
+  white-space: nowrap;
+}
+.procedure-navigation a:hover {
+  color: #202027;
+}
+.procedure-navigation a.is-current {
+  color: #202027;
+}
+.procedure-navigation a.is-current:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 3px;
+  background: #fc7630;
+}
+.procedure-content {
+  min-width: 0;
+  padding-top: 30px;
+}
+.procedure-section-header {
+  margin-bottom: 24px;
+}
+.procedure-section-heading {
+  min-width: 0;
+}
+.procedure-section-heading h2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin: 0;
+  scroll-margin-top: calc(var(--procedure-toolbar-height) + 24px);
+}
+.procedure-section-description {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: #73737d;
+  margin: 12px 0 0;
+  max-width: 730px;
+}
+.procedure-section-body {
+  display: flow-root;
+}
+.procedure-scale {
+  margin: 0 0 20px;
+}
+.procedure-scale summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 13px 0;
+  color: #63636e;
+}
+.procedure-scale summary::-webkit-details-marker {
+  display: none;
+}
+.procedure-scale summary:hover {
+  color: #202027;
+}
+.procedure-scale-description {
+  min-width: 0;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: #73737d;
+}
+.procedure-scale-trigger {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+.procedure-scale summary .icon {
+  width: 21px;
+  height: 21px;
+}
+.procedure-scale[open] summary .icon {
+  transform: rotate(45deg);
+}
+.procedure-scale > div {
+  padding: 4px 40px 16px 0;
+  max-width: 850px;
+}
+.procedure-scale p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #6e6e79;
+  margin: 0 0 12px;
+}
+.procedure-scale p:last-child {
+  margin-bottom: 0;
+}
+.competency-list {
+  display: grid;
+  gap: 12px;
+}
+.competency-entry {
+  padding: 25px 30px;
+  background: #f4f4f6;
+  border-radius: 24px;
+}
+.competency-entry summary {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  cursor: pointer;
+}
+.competency-entry summary::-webkit-details-marker {
+  display: none;
+}
+.competency-entry h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.35px;
+  margin: 0;
+}
+.competency-entry summary > span {
+  display: flex;
+  color: #7f7f89;
+  flex-shrink: 0;
+}
+.competency-entry summary .icon {
+  width: 22px;
+  height: 22px;
+}
+.competency-entry[open] summary .icon {
+  transform: rotate(45deg);
+}
+.competency-body > p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #6e6e79;
+  margin: 20px 0 0;
+  max-width: 900px;
+}
+.competency-values {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 40px;
+  padding-top: 24px;
+  margin: 0;
+}
+.competency-values > div {
+  min-width: 0;
+}
+.competency-values dt {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #797983;
+  margin-bottom: 5px;
+}
+.competency-values dd {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  color: #3f3f49;
+  overflow-wrap: anywhere;
+}
+.workspace-empty {
+  padding: 34px;
+  border-radius: 24px;
+  background: #f4f4f6;
+}
+.workspace-empty h3 {
+  font-size: 1.75rem;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+  margin: 0 0 16px;
+}
+.workspace-empty p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #6e6e79;
+  margin: 0;
+  max-width: 760px;
+}
+.procedure-explanation {
+  padding-top: 27px;
+  max-width: 850px;
+}
+.procedure-explanation h3 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0 0 12px;
+}
+.procedure-explanation p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #6e6e79;
+  margin: 0;
+}
+.approval-list {
+  display: grid;
+  gap: 12px;
+}
+.approval-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 28px 30px;
+  background: #f4f4f6;
+  border-radius: 24px;
+}
+.approval-role {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #797983;
+  display: block;
+  margin-bottom: 8px;
+}
+.approval-entry h3 {
+  font-size: 1.375rem;
+  line-height: 1.4;
+  font-weight: 400;
+  margin: 0;
+  max-width: 650px;
+  overflow-wrap: anywhere;
+}
+.approval-decision {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #797983;
+  text-align: right;
+}
+.approval-decision time {
+  display: block;
+  font-size: 0.8125rem;
+  margin-top: 6px;
+}
+.procedure-section-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  margin-top: 30px;
+  padding-top: 23px;
+}
+.procedure-section-navigation a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid #dedee5;
+  border-radius: 9px;
+  background: #fff;
+  color: #5f5f6b;
+  transition:
+    background-color 0.15s,
+    border-color 0.15s;
+  overflow-wrap: anywhere;
+}
+.procedure-section-navigation a:hover {
+  background: #f4f4f6;
+  border-color: #b9b9c3;
+}
+.procedure-section-navigation a.primary {
+  margin-left: auto;
+  background: #24242d;
+  border-color: #24242d;
+  color: #fff;
+}
+.procedure-section-navigation a.primary:hover {
+  background: #3e3f49;
+  border-color: #3e3f49;
+}
+.missing-procedure {
+  width: calc(100% - var(--page-edge) * 2);
+  max-width: var(--page-content-max);
+  margin: 60px auto;
+  padding-bottom: 30px;
+}
+.missing-procedure h1 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 0 20px;
+}
+.missing-procedure p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #b5b5bf;
+  margin: 0 0 30px;
+}
+
+@media (min-width: 1600px) {
+  .workspace-intro h1 {
+    font-size: 4rem;
+  }
+  .procedure-intro h1 {
+    font-size: 3.75rem;
+  }
+  .procedure-card {
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 45px;
+  }
+  .procedure-card-year {
+    font-size: 7rem;
+  }
+}
+@media (max-width: 1100px) {
+  .workspace-intro-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+  .workspace-intro-copy {
+    min-height: 0;
+  }
+  .workspace-person {
+    padding: 0;
+    border: 0;
+  }
+  .workspace-person:before {
+    display: none;
+  }
+  .workspace-details {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+  }
+  .workspace-details > div:nth-child(even) {
+    text-align: left;
+  }
+  .workspace-intro h1 {
+    font-size: 3.25rem;
+  }
+  .procedure-card {
+    grid-template-columns: 165px minmax(0, 1fr);
+    gap: 30px;
+  }
+  .procedure-card-year {
+    font-size: 5.5rem;
+  }
+  .procedure-card h3 {
+    font-size: 2rem;
+  }
+  .procedure-card-heading {
+    align-items: flex-start;
+  }
+  .procedure-section-heading h2 {
+    font-size: 2.25rem;
+  }
+}
+@media (max-width: 850px) {
+  .workspace-intro h1 {
+    font-size: 3rem;
+  }
+  .workspace-lead {
+    font-size: 1.25rem;
+  }
+  .procedure-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+  .procedure-card-year {
+    font-size: 5rem;
+  }
+  .procedure-card-heading {
+    margin-top: 0;
+  }
+  .procedure-card-heading .procedure-card-status--heading {
+    display: none;
+  }
+  .procedure-card-bottom {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .procedure-card-step {
+    width: 100%;
+  }
+  .procedure-card-bottom .workspace-button {
+    align-self: flex-start;
+  }
+  .procedure-card-status--step {
+    display: inline-flex;
+    flex-shrink: 0;
+  }
+  .procedure-toolbar {
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .procedure-navigation {
+    flex-basis: auto;
+  }
+  .procedure-status {
+    padding-top: 1px;
+  }
+  .procedure-current-status {
+    width: 38px;
+    height: 38px;
+    justify-content: center;
+    padding: 0;
+  }
+  .procedure-status-label {
+    display: none;
+  }
+  .procedure-status-icon {
+    display: flex;
+  }
+  .procedure-status-icon .icon {
+    width: 20px;
+    height: 20px;
+  }
+  .procedure-status:hover .procedure-status-tooltip,
+  .procedure-status:focus-within .procedure-status-tooltip {
+    display: block;
+  }
+  .procedure-navigation {
+    gap: 8px 24px;
+  }
+}
+@media (max-width: 767px) {
+  .workspace-details {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 650px) {
+  .workspace-intro {
+    padding: 0 20px 32px;
+  }
+  .workspace-intro-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .workspace-intro h1 {
+    font-size: clamp(2rem, 8.75vw, 2.625rem);
+    letter-spacing: -1.1px;
+    margin-bottom: 18px;
+  }
+  .workspace-lead {
+    font-size: 1.25rem;
+  }
+  .workspace-person {
+    justify-self: stretch;
+    max-width: none;
+  }
+  .workspace-details {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 24px;
+  }
+  .workspace-surface {
+    padding: 26px 20px 28px;
+    border-radius: 24px 24px 0 0;
+  }
+  .catalog-heading {
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  .catalog-heading h2 {
+    font-size: 1.5rem;
+  }
+  .catalog-heading > span {
+    font-size: 0.8125rem;
+  }
+  .procedure-card {
+    padding: 25px;
+    gap: 18px;
+  }
+  .procedure-card-year {
+    font-size: 4.5rem;
+    letter-spacing: -3px;
+  }
+  .procedure-card-heading {
+    flex-direction: column;
+    gap: 13px;
+    margin-bottom: 17px;
+  }
+  .procedure-card h3 {
+    font-size: 1.875rem;
+  }
+  .procedure-card-description {
+    font-size: 1.0625rem;
+  }
+  .card-desktop-break {
+    display: none;
+  }
+  .procedure-card-sections {
+    gap: 11px 18px;
+    margin-top: 20px;
+  }
+  .procedure-card-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 22px;
+    margin-top: 25px;
+  }
+  .procedure-card-bottom .workspace-button {
+    max-width: calc(100% - 9px);
+  }
+  .catalog-help {
+    margin-top: 20px;
+  }
+  .catalog-help summary {
+    font-size: 0.9375rem;
+  }
+  .catalog-archive {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 17px;
+  }
+  .procedure-surface {
+    padding-top: 0;
+  }
+  .procedure-toolbar {
+    padding: 13px 0;
+  }
+  .procedure-navigation {
+    gap: 6px 22px;
+  }
+  .procedure-navigation a {
+    font-size: 0.9375rem;
+    min-height: 40px;
+  }
+  .procedure-section-heading h2 {
+    font-size: 2rem;
+  }
+  .procedure-section-description {
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+  .procedure-section-navigation {
+    gap: 9px;
+  }
+  .procedure-section-navigation a {
+    font-size: 0.875rem;
+    text-align: center;
+  }
+  .procedure-scale {
+    margin-bottom: 16px;
+  }
+  .procedure-scale summary {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .procedure-scale-description {
+    flex-basis: 100%;
+    font-size: 1rem;
+  }
+  .procedure-scale-trigger {
+    margin-left: auto;
+  }
+  .procedure-scale > div {
+    padding-right: 0;
+  }
+  .competency-entry {
+    padding: 23px;
+  }
+  .competency-entry h3 {
+    font-size: 1.375rem;
+  }
+  .competency-entry summary {
+    gap: 18px;
+  }
+  .competency-body > p {
+    margin-top: 18px;
+  }
+  .competency-values {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    padding-top: 22px;
+  }
+  .workspace-empty {
+    padding: 27px;
+  }
+  .workspace-empty h3 {
+    font-size: 1.5rem;
+  }
+  .workspace-empty p {
+    font-size: 1rem;
+  }
+  .approval-entry {
+    padding: 25px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 17px;
+  }
+  .approval-entry h3 {
+    font-size: 1.25rem;
+  }
+  .approval-decision {
+    text-align: left;
+  }
+}
+@media (max-width: 420px) {
+  .workspace-details {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+}
+@media (pointer: coarse) {
+  .workspace-parent-link,
+  .workspace-header-toggle {
+    min-height: 44px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .workspace-parent-link,
+  .workspace-header-toggle,
+  .workspace-button,
+  .procedure-section-navigation a {
+    transition: none;
+  }
+}
